@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">junit-jupiter-basics-web-1</a> &gt; <a href="index.source.html" class="el_package">com.web.junitjupiterbasics.user</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package com.web.junitjupiterbasics.user;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(uniqueConstraints=@UniqueConstraint(name = &quot;UIDX_userName&quot;, columnNames = {&quot;id&quot;,&quot;userName&quot;}))
+public class User {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	
+	@Column(length=20, name=&quot;userName&quot;, nullable=false)
+	private String userName;
+	
+	@Column(length=10, name=&quot;Password&quot;, nullable=false)
+	private String password;
+	
+	@Column(length=20, name=&quot;firstName&quot;, nullable=false)
+	private String firstName;
+	
+	@Column(length=20, name=&quot;lastName&quot;, nullable=false)
+	private String lastName;
+	
+	@Column(length=12, name=&quot;phone&quot;, nullable=false)
+	private String phone;
+	
+	@Column(length=75, name=&quot;email&quot;, nullable=false)
+	private String email;
+	
+	@Column(length=5, name=&quot;is_member&quot;, nullable=false)
+	private boolean is_member;
+	
+	@Column(length=5, name=&quot;admin&quot;, nullable=false)
+	private boolean admin;
+	
+<span class="nc" id="L43">	public User() {}</span>
+	public User(int id, String userName, String password, String firstName, String lastName, String phone, String email,
+			boolean is_member, boolean admin) {
+<span class="nc" id="L46">		super();</span>
+<span class="nc" id="L47">		this.id = id;</span>
+<span class="nc" id="L48">		this.userName = userName;</span>
+<span class="nc" id="L49">		this.password = password;</span>
+<span class="nc" id="L50">		this.firstName = firstName;</span>
+<span class="nc" id="L51">		this.lastName = lastName;</span>
+<span class="nc" id="L52">		this.phone = phone;</span>
+<span class="nc" id="L53">		this.email = email;</span>
+<span class="nc" id="L54">		this.is_member = is_member;</span>
+<span class="nc" id="L55">		this.admin = admin;</span>
+<span class="nc" id="L56">	}</span>
+	public int getId() {
+<span class="nc" id="L58">		return id;</span>
+	}
+	public void setId(int id) {
+<span class="nc" id="L61">		this.id = id;</span>
+<span class="nc" id="L62">	}</span>
+	public String getUserName() {
+<span class="nc" id="L64">		return userName;</span>
+	}
+	public void setUserName(String userName) {
+<span class="nc" id="L67">		this.userName = userName;</span>
+<span class="nc" id="L68">	}</span>
+	public String getPassword() {
+<span class="nc" id="L70">		return password;</span>
+	}
+	public void setPassword(String password) {
+<span class="nc" id="L73">		this.password = password;</span>
+<span class="nc" id="L74">	}</span>
+	public String getFirstName() {
+<span class="nc" id="L76">		return firstName;</span>
+	}
+	public void setFirstName(String firstName) {
+<span class="nc" id="L79">		this.firstName = firstName;</span>
+<span class="nc" id="L80">	}</span>
+	public String getLastName() {
+<span class="nc" id="L82">		return lastName;</span>
+	}
+	public void setLastName(String lastName) {
+<span class="nc" id="L85">		this.lastName = lastName;</span>
+<span class="nc" id="L86">	}</span>
+	public String getPhone() {
+<span class="nc" id="L88">		return phone;</span>
+	}
+	public void setPhone(String phone) {
+<span class="nc" id="L91">		this.phone = phone;</span>
+<span class="nc" id="L92">	}</span>
+	public String getEmail() {
+<span class="nc" id="L94">		return email;</span>
+	}
+	public void setEmail(String email) {
+<span class="nc" id="L97">		this.email = email;</span>
+<span class="nc" id="L98">	}</span>
+	public boolean isIs_member() {
+<span class="nc" id="L100">		return is_member;</span>
+	}
+	public void setIs_member(boolean is_member) {
+<span class="nc" id="L103">		this.is_member = is_member;</span>
+<span class="nc" id="L104">	}</span>
+	public boolean isAdmin() {
+<span class="nc" id="L106">		return admin;</span>
+	}
+	public void setAdmin(boolean admin) {
+<span class="nc" id="L109">		this.admin = admin;</span>
+<span class="nc" id="L110">	}</span>
+	
+	@Override
+	public String toString() {
+<span class="nc" id="L114">		return &quot;User [id=&quot; + id + &quot;, userName=&quot; + userName + &quot;, password=&quot; + password + &quot;, firstName=&quot; + firstName</span>
+<span class="nc" id="L115">				+ &quot;, lastName=&quot; + lastName + &quot;, phone=&quot; + phone + &quot;, email=&quot; + email + &quot;, is_member=&quot; + is_member</span>
+<span class="nc" id="L116">				+ &quot;, admin=&quot; + admin + &quot;]&quot;;</span>
+	}
+	
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
